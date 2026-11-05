@@ -53,7 +53,7 @@ Primary keys, foreign keys, unique constraints, and check constraints are used t
 
 The following diagram represents the database structure and relationships between the seven tables.
 
-![Database ER Diagram](docs/ER_event_ticketing.pgerd)
+![Database ER Diagram](docs/ER_event_ticketing.pgerd.png)
 
 ## 2. SQL Concepts Implemented
 
@@ -105,7 +105,7 @@ After developing the database and practising SQL operations, I integrated Postgr
 
 FastAPI automatically generates interactive API documentation through Swagger UI.
 
-![Swagger UI](docs/images/swagger_ui.png)
+![Swagger UI](docs/Images/swagger_ui.png)
 
 The documentation can be accessed locally at:
 
@@ -134,17 +134,17 @@ This helped me understand why checking seat availability in application code alo
 
 **Successful Booking**
 
-![Successful Booking](docs/images/booking_created_response.png)
+![Successful Booking](docs/Images/booking_created_response.png)
 
 **Duplicate Booking Prevention**
 
-![Duplicate Booking](docs/images/booking_conflict.png)
+![Duplicate Booking](docs/Images/booking_conflict.png)
 
 **Concurrent Booking Test**
 
-![Concurrent Booking threadpoolexecuter](docs/images/concurrent_transaction_test_threadppolexecutor.png)
+![Concurrent Booking threadpoolexecuter](docs/Images/concurrent_transaction_test_threadppolexecutor.png)
 
-![Concurrent Booking psql_two_sessions](docs/images/concurrency_testing_psql.png)
+![Concurrent Booking psql_two_sessions](docs/Images/concurrency_testing_psql.png)
 
 ## 5. Running the Project Locally
 
