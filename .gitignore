@@ -1,0 +1,35 @@
+
+# Virtual environments
+.ticketingenv/
+venv/
+env/
+myenv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+api/*.env
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE settings
+.vscode/
+.idea/
+
+
+# Logs and temporary file
+*.log
+*.tmp
+*.bak
+
+#Temporary Python Files
+
+tempCodeRunnerFile.py
