@@ -105,7 +105,7 @@ After developing the database and practising SQL operations, I integrated Postgr
 
 FastAPI automatically generates interactive API documentation through Swagger UI.
 
-![Swagger UI](docs/Images/swagger_ui.png)
+![Swagger UI](docs/swagger_ui.png)
 
 The documentation can be accessed locally at:
 
