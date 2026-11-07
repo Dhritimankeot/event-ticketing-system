@@ -20,6 +20,7 @@ Some of the key functionalities implemented include:
 - Transaction management.
 - Prevention of duplicate seat reservations.
 - REST API integration using FastAPI.
+- Concurrency testing with Python threads and two parallel psql sessions.
 
 ## Technology Stack
 
@@ -53,7 +54,7 @@ Primary keys, foreign keys, unique constraints, and check constraints are used t
 
 The following diagram represents the database structure and relationships between the seven tables.
 
-![Database ER Diagram](docs/ER_event_ticketing.pgerd.png)
+![Database ER Diagram](docs/ER_event_ticketing.png)
 
 ## 2. SQL Concepts Implemented
 
@@ -83,7 +84,7 @@ The concepts covered include:
 - COMMIT and ROLLBACK
 - SAVEPOINT
 
-I also worked on queries involving booking analysis, event revenue, cancellations, and seat availability.
+I also worked on queries involving booking analysis, event revenue, cancellations, and seat availability. One of these, event revenue with ranking (CTE and window function), is exposed through the `/analytics/events/revenue` endpoint.
 
 ## 3. FastAPI Integration
 
@@ -99,13 +100,13 @@ After developing the database and practising SQL operations, I integrated Postgr
 | POST | `/bookings` | Create a booking |
 | GET | `/bookings/{booking_id}` | Retrieve booking details |
 | PATCH | `/bookings/{booking_id}/cancel` | Cancel a booking |
-| GET | `/analytics/events/revenue` | Retrive Event Revenue With Rank |
+| GET | `/analytics/events/revenue` | Retrieve event revenue with rank |
 
 ### API Documentation
 
 FastAPI automatically generates interactive API documentation through Swagger UI.
 
-![Swagger UI](docs/Images/swagger_ui.png.png)
+![Swagger UI](docs/Images/swagger_ui.png)
 
 The documentation can be accessed locally at:
 
@@ -140,9 +141,11 @@ This helped me understand why checking seat availability in application code alo
 
 ![Duplicate Booking](docs/Images/booking_conflict.png)
 
-**Concurrent Booking Test**
+**Concurrent Booking Tests**
 
-![Concurrent Booking threadpoolexecuter](docs/Images/concurrent_transaction_test_threadppolexecutor.png)
+The concurrency test script uses Python's `ThreadPoolExecutor` to send multiple booking requests for the same seat, and a `Barrier` so that all threads release at the same moment and reach the database together. The same scenario was also reproduced manually with two parallel psql sessions.
+
+![Concurrent Booking threadpoolexecuter](docs/Images/concurrent_transaction_test_threadpoolexecutor.png)
 
 ![Concurrent Booking psql_two_sessions](docs/Images/concurrency_testing_psql.png)
 
@@ -235,5 +238,4 @@ There are still several areas I would like to explore and improve:
 
 ---
 
-**Project Status:** Work in Progress
-
+**Project Status:** Core booking, cancellation, analytics, and concurrency handling are implemented; the improvements above are planned.
